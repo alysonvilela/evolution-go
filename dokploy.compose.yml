@@ -40,8 +40,8 @@ services:
       EVENT_IGNORE_STATUS: "true"
       QRCODE_MAX_COUNT: "5"
     volumes:
-      - evolution_go_data:/app/dbdata
-      - evolution_go_logs:/app/logs
+      - evolution_data:/app/dbdata
+      - evolution_logs:/app/logs
     networks:
       - evolution_network
     depends_on:
