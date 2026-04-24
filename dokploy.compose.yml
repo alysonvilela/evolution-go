@@ -4,7 +4,7 @@ services:
   evolution-go:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dokploy.Dockerfile
     container_name: evolution-go
     restart: unless-stopped
     ports:
