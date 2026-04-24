@@ -44,10 +44,9 @@ services:
     networks:
       - evolution_network
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
 
-postgres:
+  postgres:
     image: postgres:15-alpine
     restart: unless-stopped
     environment:
