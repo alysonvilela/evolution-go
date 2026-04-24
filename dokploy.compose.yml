@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dokploy.Dockerfile
-    container_name: evolution-go
     restart: unless-stopped
     ports:
       - "${SERVER_PORT:-4000}:${SERVER_PORT:-4000}"
@@ -48,9 +47,8 @@ services:
       postgres:
         condition: service_healthy
 
-  postgres:
+postgres:
     image: postgres:15-alpine
-    container_name: evolution-postgres-test
     restart: unless-stopped
     environment:
       POSTGRES_USER: "${POSTGRES_USER:-postgres}"
