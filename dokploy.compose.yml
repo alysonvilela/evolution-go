@@ -13,8 +13,8 @@ services:
       SERVER_PORT: "${SERVER_PORT:-4000}"
       CLIENT_NAME: "evolution"
       GLOBAL_API_KEY: "${GLOBAL_API_KEY}"
-      POSTGRES_AUTH_DB: "postgresql://-${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:${PGPORT:-5432}/evogo_auth?sslmode=disable"
-      POSTGRES_USERS_DB: "postgresql://-${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:${PGPORT:-5432}/evogo_users?sslmode=disable"
+      POSTGRES_AUTH_DB: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:${PGPORT:-5432}/evogo_auth?sslmode=disable"
+      POSTGRES_USERS_DB: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:${PGPORT:-5432}/evogo_users?sslmode=disable"
       DATABASE_SAVE_MESSAGES: "false"
       WADEBUG: "INFO"
       LOGTYPE: "console"
@@ -50,7 +50,7 @@ services:
 
   postgres:
     image: postgres:15-alpine
-    container_name: evolution-postgres
+    container_name: evolution-postgres-test
     restart: unless-stopped
     environment:
       POSTGRES_USER: "${POSTGRES_USER:-postgres}"
